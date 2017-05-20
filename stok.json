@@ -1,0 +1,46 @@
+{
+    "fields": [
+        {
+            "name": "tanggal_masuk",
+            "type": "date"
+        },
+        {
+            "name": "nama_buku",
+            "type": "string"
+        },
+        {
+            "name": "nama_penerbit",
+            "type": "string"
+        },
+        {
+            "name": "jumlah",
+            "type": "string"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "nama_buku",
+            "references": "nama_buku",
+            "on": "buku",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "nama_penerbit",
+            "references": "nama",
+            "on": "penerbit",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "penerbit",
+            "type": "belongsTo",
+            "class": "App\\penerbit"
+        },
+        {
+            "name": "buku",
+            "type": "belongsTo",
+            "class": "App\\buku"
+        }
+    ]
+}
